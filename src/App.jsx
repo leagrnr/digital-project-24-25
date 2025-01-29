@@ -1,10 +1,13 @@
 import './App.css'
+import CarbonSimulator from './components/CarbonSimulator.jsx'
 
 function App() {
 
   return (
     <>
-        <h1 className="text-3xl text-gray-700">Hello</h1>
+        <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+            <CarbonSimulator />
+        </div>
     </>
   )
 }

@@ -1,0 +1,116 @@
+{
+  "quiz": [
+    {
+      "question": "Quel est ton principal mode de transport pour aller au travail ?",
+      "options": [
+        { "answer": "🚲 Vélo / Marche", "co2_kg_per_day": 0 },
+        { "answer": "🚆 Transports en commun", "co2_kg_per_day": 1.5 },
+        { "answer": "🚗 Voiture individuelle (essence/diesel)", "co2_kg_per_day": 6 },
+        { "answer": "🚙 Covoiturage", "co2_kg_per_day": 3 }
+      ],
+      "multiplier": 220
+    },
+    {
+      "question": "Quelle est la distance que tu parcours chaque jour pour aller travailler (aller-retour) ?",
+      "options": [
+        { "answer": "🔹 Moins de 5 km", "co2_kg_per_day": 1 },
+        { "answer": "🔸 Entre 5 et 20 km", "co2_kg_per_day": 3 },
+        { "answer": "🔺 Plus de 20 km", "co2_kg_per_day": 6 }
+      ],
+      "multiplier": 220
+    },
+    {
+      "question": "À quelle fréquence travailles-tu en télétravail ?",
+      "options": [
+        { "answer": "💻 Plusieurs jours par semaine", "co2_kg_per_year": -500 },
+        { "answer": "📅 1 jour par semaine ou moins", "co2_kg_per_year": -200 },
+        { "answer": "🏢 Jamais", "co2_kg_per_year": 0 }
+      ],
+      "multiplier": 1
+    },
+    {
+      "question": "Quel est ton équipement informatique principal ?",
+      "options": [
+        { "answer": "🖥️ Un ordinateur portable éco-conçu ou reconditionné", "co2_kg_per_year": 100 },
+        { "answer": "💻 Un ordinateur de bureau standard", "co2_kg_per_year": 200 },
+        { "answer": "🖥️ Plusieurs écrans et appareils énergivores", "co2_kg_per_year": 300 }
+      ],
+      "multiplier": 1
+    },
+    {
+      "question": "Veilles-tu à éteindre ton ordinateur et tes appareils électroniques en fin de journée ?",
+      "options": [
+        { "answer": "✅ Toujours", "co2_kg_per_year": 50 },
+        { "answer": "⚠️ Parfois", "co2_kg_per_year": 100 },
+        { "answer": "❌ Jamais", "co2_kg_per_year": 150 }
+      ],
+      "multiplier": 1
+    },
+    {
+      "question": "Quelle est ta consommation de papier au travail ?",
+      "options": [
+        { "answer": "📑 Je n’imprime presque jamais", "co2_kg_per_year": 50 },
+        { "answer": "🖨️ J’imprime occasionnellement, en recto-verso", "co2_kg_per_year": 100 },
+        { "answer": "📄 J’imprime beaucoup, souvent en recto simple", "co2_kg_per_year": 200 }
+      ],
+      "multiplier": 1
+    },
+    {
+      "question": "Quelle est ta consommation de café/thé au bureau ?",
+      "options": [
+        { "answer": "🚫 Je ne bois pas de boissons chaudes", "co2_kg_per_year": 0 },
+        { "answer": "☕ J’utilise une tasse réutilisable", "co2_kg_per_year": 50 },
+        { "answer": "🥤 J’utilise des gobelets jetables", "co2_kg_per_year": 150 }
+      ],
+      "multiplier": 1
+    },
+    {
+      "question": "Comment gères-tu tes déchets au bureau ?",
+      "options": [
+        { "answer": "🔄 Je trie systématiquement (papier, plastique, déchets organiques)", "co2_kg_per_year": 50 },
+        { "answer": "🗑️ Je trie seulement quand c’est facile d’accès", "co2_kg_per_year": 100 },
+        { "answer": "🚯 Je ne trie pas", "co2_kg_per_year": 150 }
+      ],
+      "multiplier": 1
+    },
+    {
+      "question": "Que fais-tu pour réduire ta consommation d’énergie au bureau ?",
+      "options": [
+        { "answer": "💡 J’éteins les lumières et appareils inutiles", "co2_kg_per_year": 50 },
+        { "answer": "🔆 J’y pense parfois, mais pas systématiquement", "co2_kg_per_year": 100 },
+        { "answer": "⚡ Je laisse tout allumé sans trop y faire attention", "co2_kg_per_year": 200 }
+      ],
+      "multiplier": 1
+    },
+    {
+      "question": "Prends-tu souvent l’avion pour des déplacements professionnels ?",
+      "options": [
+        { "answer": "✈️ Rarement ou jamais", "co2_kg_per_year": 0 },
+        { "answer": "🛫 Quelques fois par an", "co2_kg_per_year": 500 },
+        { "answer": "🌍 Régulièrement (plusieurs vols par an)", "co2_kg_per_year": 1500 }
+      ],
+      "multiplier": 1
+    }
+  ],
+  "calculation_method": {
+    "total_co2": "sum(option.co2_kg_per_day * multiplier + option.co2_kg_per_year for all selected options)"
+  },
+  "recommendations": [
+    {
+      "threshold": 1000,
+      "message": "🚀 Bravo ! Ton empreinte carbone est très faible. 🌱\n🔹 Ton impact annuel est équivalent à un Français qui vit en mode éco-responsable (sans voiture et avec peu de déplacements en avion). \n🔹 C’est comme si tu plantais **50 arbres** par an !"
+    },
+    {
+      "threshold": 3000,
+      "message": "✅ Tu es dans la moyenne. Tu peux encore améliorer ton impact ! 🌍\n🔸 Ton empreinte carbone est similaire à celle d’un salarié classique utilisant les transports en commun et travaillant parfois en télétravail.\n🔸 C’est comme si tu faisais **15 allers-retours Paris-Marseille en train** en un an."
+    },
+    {
+      "threshold": 5000,
+      "message": "⚠️ Ton empreinte carbone est élevée. Pense à réduire tes déplacements en voiture et en avion. 🚘✈️\n🔸 Ton impact est comparable à celui d’un salarié qui prend souvent l’avion et utilise une voiture thermique au quotidien.\n🔸 C’est comme si tu faisais **50 allers-retours Paris-Marseille en train** ou que tu laissais une ampoule allumée **24h/24 pendant un an**."
+    },
+    {
+      "threshold": 10000,
+      "message": "🚨 Alerte ! Ton empreinte carbone est **très élevée**. Il est urgent de changer certaines habitudes ! 🔥\n🔹 Ton impact est proche de celui d’un **grand voyageur international** ou d’une personne utilisant quotidiennement une voiture thermique pour de longues distances.\n🔹 C’est l’équivalent de **2 allers-retours Paris-New York en avion** ou de **conduire 40 000 km en voiture thermique** par an."
+    }
+  ]
+}
